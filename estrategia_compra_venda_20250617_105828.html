@@ -1,0 +1,2429 @@
+<!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relatório Estratégico: Compra e Venda</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    margin: 20px; color: #333; line-height: 1.6; }
+            .container { max-width: 1400px; margin: 0 auto; }
+            .header { background: linear-gradient(135deg, #2c3e50, #1a2530); 
+                      color: white; padding: 25px; border-radius: 8px; 
+                      box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+            .header h1, .header h2 { margin: 0; }
+            .strategy { background: #e8f4f8; border-left: 4px solid #3498db; 
+                        padding: 15px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+            .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                        gap: 15px; margin: 25px 0; }
+            .summary-card { background: white; border-radius: 8px; padding: 20px;
+                             box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center;
+                             transition: transform 0.3s ease; }
+            .summary-card:hover { transform: translateY(-5px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+            .summary-card h3 { margin-top: 0; color: #2c3e50; font-size: 1.1em; }
+            .summary-card div { font-size: 26px; font-weight: bold; margin: 10px 0; }
+            .profit { color: #27ae60; }
+            .opportunity { color: #e67e22; }
+            .suppliers { color: #3498db; }
+            .section { margin: 35px 0; padding-top: 20px; }
+            .section h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; 
+                          padding-bottom: 12px; margin-bottom: 20px; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+            th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid #ecf0f1; }
+            th { background-color: #34495e; color: white; font-weight: 600; 
+                 position: sticky; top: 0; }
+            tr:nth-child(even) { background-color: #f8f9fa; }
+            tr:hover { background-color: #f1f8ff; }
+            .visuals { text-align: center; margin: 35px 0; 
+                       background: white; padding: 20px; border-radius: 8px;
+                       box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+            .visuals img { max-width: 100%; height: auto; border-radius: 6px; }
+            .timestamp { font-size: 0.9em; color: #bdc3c7; margin-top: 8px; }
+            .metric-value { font-weight: bold; }
+            .positive { color: #27ae60; }
+            .neutral { color: #7f8c8d; }
+            .negative { color: #e74c3c; }
+            .recommendation { background: #fff8e6; border-left: 4px solid #f39c12; 
+                              padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+            .supplier-detail { background: #f8f9fa; padding: 10px; border-radius: 6px; 
+                               margin-top: 8px; }
+            .supplier-row { display: flex; justify-content: space-between; 
+                            padding: 6px 0; border-bottom: 1px dashed #e0e0e0; }
+            .supplier-row:last-child { border-bottom: none; }
+            .priority-1 { background-color: #e8f5e9 !important; }
+            .priority-2 { background-color: #fffde7 !important; }
+            .priority-3 { background-color: #ffebee !important; }
+            .priority-4 { background-color: #f5f5f5 !important; }
+            .na-cell { color: #95a5a6; font-style: italic; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Relatório Estratégico: Compra e Venda</h1>
+                <h2>Estratégia: "Compre Barato, Venda Caro"</h2>
+                <p class="timestamp">
+                    Gerado em: 2025-06-17 10:58:37 | 
+                    Markup Padrão: 1.7x | 
+                    Dados mais recentes: 2025-06-17 04:08:18
+                </p>
+            </div>
+            
+            <div class="strategy">
+                <h3>Orientação Estratégica</h3>
+                <p>Este relatório identifica oportunidades para maximizar lucros através da estratégia "Compre Barato, Venda Caro". 
+                São destacados produtos com maior potencial de lucro por unidade e maior variação de preços entre fornecedores.</p>
+                <p><strong>Priorização de Compra:</strong> Produtos com maior lucro por unidade e maior variação de preço entre fornecedores.</p>
+            </div>
+            
+            <div class="summary">
+                <div class="summary-card">
+                    <h3>Total de Produtos Analisados</h3>
+                    <div>26072</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Produtos Rentáveis</h3>
+                    <div class="profit">26071</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Lucro Médio por Unidade</h3>
+                    <div class="profit">R$34,65</div>
+                </div>
+                <div class="summary-card">
+                    <h3>Máximo Lucro por Unidade</h3>
+                    <div class="profit">R$9.001,40</div>
+                </div>
+            </div>
+            
+            <div class="visuals">
+                <img src="estrategia_visuals_20250617_105828.png" alt="Análise Visual Estratégica">
+            </div>
+            
+            <div class="section">
+                <h2>Produtos com Maior Potencial de Lucro</h2>
+                <p class="timestamp">Priorizados por lucro por unidade e oportunidade de compra</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cód. Barras</th>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Fornecedores</th>
+                            <th>Preço Mín</th>
+                            <th>Preço Máx</th>
+                            <th>Variação</th>
+                            <th>Markup Ideal</th>
+                            <th>Preço Ideal</th>
+                            <th>Lucro/Unid</th>
+                            <th>Recomendação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+        <tr class="priority-2">
+            <td>1000000016177</td>
+            <td><strong>MISTURADOR LA250</strong></td>
+            <td>máquinas-e-equipamentos</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$16.983,77</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$16.983,77</td>
+            <td>R$16.983,77</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$25.985,17</td>
+            <td class="metric-value positive">R$9.001,40</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563912041</td>
+            <td><strong>FIO CABO FLEX 2 X 2,50MM - BOBINA COM 500 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$2.615,80</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.615,80</td>
+            <td>R$2.615,80</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$4.002,17</td>
+            <td class="metric-value positive">R$1.386,37</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898423295485 </td>
+            <td><strong>LONA ESTUFA/AGRICOLA TRANSPARENTE 8,00 x 105 82,6KG 100MC NORTENE 7022...</strong></td>
+            <td>lonas-e-filmes--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$2.539,83</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.539,83</td>
+            <td>R$2.539,83</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.885,94</td>
+            <td class="metric-value positive">R$1.346,11</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563907818</td>
+            <td><strong>FIO CABO FLEXÍVEL 4 X 6,00MM - 100 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$2.360,00</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.360,00</td>
+            <td>R$2.360,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.610,80</td>
+            <td class="metric-value positive">R$1.250,80</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902271</td>
+            <td><strong>FIO CABO FLEXIVEL 6MM AZUL - BOBINA COM 500 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$2.300,00</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.300,00</td>
+            <td>R$2.300,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.519,00</td>
+            <td class="metric-value positive">R$1.219,00</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902332</td>
+            <td><strong>FIO CABO FLEXIVEL 6MM PRETO - BOBINA COM 500 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$2.300,00</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.300,00</td>
+            <td>R$2.300,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.519,00</td>
+            <td class="metric-value positive">R$1.219,00</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902127</td>
+            <td><strong>FIO CABO FLEXIVEL 4MM BOBINA 600 METROS AZUL - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$2.153,78</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.153,78</td>
+            <td>R$2.153,78</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.295,28</td>
+            <td class="metric-value positive">R$1.141,50</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899812237659 </td>
+            <td><strong>TRITURADOR FORRAGEIRO 127/220V TRF-80 2CV 60HZ MONOFASICO COM DISCO MO...</strong></td>
+            <td>agropecuaria----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$2.056,34</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$2.056,34</td>
+            <td>R$2.056,34</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.146,20</td>
+            <td class="metric-value positive">R$1.089,86</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897451423181</td>
+            <td><strong>CORTADOR PISO NEW MASTER 125 62318</strong></td>
+            <td>ferramentas-manuais</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.998,93</span>
+                <span>Estq: 8</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.998,93</td>
+            <td>R$1.998,93</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$3.058,36</td>
+            <td class="metric-value positive">R$1.059,43</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897451423181 </td>
+            <td><strong>CORTADOR DE PISO NEW MASTER 125 CORTAG 62318 B</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.944,06</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.944,06</td>
+            <td>R$1.944,06</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.974,41</td>
+            <td class="metric-value positive">R$1.030,35</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902189</td>
+            <td><strong>FIO CABO FLEXIVEL 4MM BOBINA 600 METROS PRETO - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.916,19</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.916,19</td>
+            <td>R$1.916,19</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.931,77</td>
+            <td class="metric-value positive">R$1.015,58</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898423295454 </td>
+            <td><strong>LONA ESTUFA/AGRICOLA TRANSPARENTE 4,00 x 100 41,8KG 100MC NORTENE 7022...</strong></td>
+            <td>lonas-e-filmes--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.900,26</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.900,26</td>
+            <td>R$1.900,26</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.907,40</td>
+            <td class="metric-value positive">R$1.007,14</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902127 </td>
+            <td><strong>CABO FLEXIVEL CARRETEL 4,00mm 750V 600M AZUL CORFIO (N) WBB0108-AZ A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.874,51</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.874,51</td>
+            <td>R$1.874,51</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.868,00</td>
+            <td class="metric-value positive">R$993,49</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902189 </td>
+            <td><strong>CABO FLEXIVEL CARRETEL 4,00mm 750V 600M PRETO CORFIO (N) WBB0108-PT A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.874,51</span>
+                <span>Estq: 12</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.874,51</td>
+            <td>R$1.874,51</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.868,00</td>
+            <td class="metric-value positive">R$993,49</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563910313 </td>
+            <td><strong>CABO FLEXIVEL 1KV 1x10,0mm² 200M HEPR PRETO CORFIO (N) WB1025E-PT A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.699,82</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.699,82</td>
+            <td>R$1.699,82</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.600,72</td>
+            <td class="metric-value positive">R$900,90</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563901984</td>
+            <td><strong>FIO CABO FLEXIVEL 2,5MM BRANCO - BOBINA COM 900 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.696,82</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.696,82</td>
+            <td>R$1.696,82</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.596,13</td>
+            <td class="metric-value positive">R$899,31</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563901984 </td>
+            <td><strong>CABO FLEXIVEL CARRETEL 2,50mm 750V 900M BRANCO CORFIO (I) BB0107-BC A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.695,71</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.695,71</td>
+            <td>R$1.695,71</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.594,44</td>
+            <td class="metric-value positive">R$898,73</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902059 </td>
+            <td><strong>CABO FLEXIVEL CARRETEL 2,50mm 750V 900M VERMELHO CORFIO (N) WBB0107-VM...</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.695,71</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.695,71</td>
+            <td>R$1.695,71</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.594,44</td>
+            <td class="metric-value positive">R$898,73</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>5400182956068 </td>
+            <td><strong>CORRENTE P/ MOTOSSERRA 73D 1640 ELOS 3/8 058 1,5mm SEMI QUADRADA ROLO ...</strong></td>
+            <td>ferramentas-----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.674,72</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.674,72</td>
+            <td>R$1.674,72</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.562,32</td>
+            <td class="metric-value positive">R$887,60</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7894200702962</td>
+            <td><strong>VASO CARRARA CONVENCIONAL BRANCO - DECA</strong></td>
+            <td>hidráulica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.662,35</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.662,35</td>
+            <td>R$1.662,35</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.543,40</td>
+            <td class="metric-value positive">R$881,05</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898018221059 </td>
+            <td><strong>CORTADOR DE GRAMA GASOLINA MOTOR 3,5HP C/COLETOR TEKNA T430GRR37 B</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.661,03</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.661,03</td>
+            <td>R$1.661,03</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.541,38</td>
+            <td class="metric-value positive">R$880,35</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563901861</td>
+            <td><strong>FIO CABO FLEXIVEL 1,5MM AZUL - BOBINA COM 1400 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.641,10</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.641,10</td>
+            <td>R$1.641,10</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.510,89</td>
+            <td class="metric-value positive">R$869,78</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>5400182785682 </td>
+            <td><strong>CORRENTE P/ MOTOSSERRA 91P 1640 ELOS 3/8 050 1,3mm B PERFIL PICO MICRO...</strong></td>
+            <td>ferramentas-----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.636,38</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.636,38</td>
+            <td>R$1.636,38</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.503,66</td>
+            <td class="metric-value positive">R$867,28</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563912034</td>
+            <td><strong>FIO ''CABO'' FLEX 2 X 1,50MM - BOBINA COM 500 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.633,30</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.633,30</td>
+            <td>R$1.633,30</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.498,95</td>
+            <td class="metric-value positive">R$865,65</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563908136</td>
+            <td><strong>FIO ''PARALELO'' 2 X 2,5MM - BOBINA COM 400 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.621,56</span>
+                <span>Estq: 7</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.621,56</td>
+            <td>R$1.621,56</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.480,99</td>
+            <td class="metric-value positive">R$859,43</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563901977</td>
+            <td><strong>FIO CABO FLEXIVEL 2,5MM AZUL - BOBINA COM 900 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.616,49</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.616,49</td>
+            <td>R$1.616,49</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.473,23</td>
+            <td class="metric-value positive">R$856,74</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902035</td>
+            <td><strong>FIO CABO FLEXIVEL 2,5MM PRETO - BOBINA COM 900 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.616,49</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.616,49</td>
+            <td>R$1.616,49</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.473,23</td>
+            <td class="metric-value positive">R$856,74</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902042</td>
+            <td><strong>FIO CABO FLEXIVEL 2,5MM VERDE - BOBINA COM 900 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.616,49</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.616,49</td>
+            <td>R$1.616,49</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.473,23</td>
+            <td class="metric-value positive">R$856,74</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563902059</td>
+            <td><strong>FIO CABO FLEXIVEL 2,5MM VERMELHO - BOBINA COM 900 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.616,49</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.616,49</td>
+            <td>R$1.616,49</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.473,23</td>
+            <td class="metric-value positive">R$856,74</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563901922</td>
+            <td><strong>FIO CABO FLEXIVEL 1,5MM PRETO - BOBINA COM 1400 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.610,00</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.610,00</td>
+            <td>R$1.610,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.463,30</td>
+            <td class="metric-value positive">R$853,30</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563907801</td>
+            <td><strong>FIO CABO FLEXÍVEL 4 X 4,00MM - 100 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.596,00</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.596,00</td>
+            <td>R$1.596,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.441,88</td>
+            <td class="metric-value positive">R$845,88</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7896411417598 </td>
+            <td><strong>TELA SOMBRITE MONOFILAMENTO 30% 100 X 3,00 alt. EQUIPESCA 50140 A</strong></td>
+            <td>telas-diversas--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.595,10</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.595,10</td>
+            <td>R$1.595,10</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.440,50</td>
+            <td class="metric-value positive">R$845,40</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7894200164548</td>
+            <td><strong>REGISTRO ESFERA BRONZE 4'' - DECA</strong></td>
+            <td>outlet</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.558,58</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.558,58</td>
+            <td>R$1.558,58</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.384,63</td>
+            <td class="metric-value positive">R$826,05</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898040488505 </td>
+            <td><strong>TRITURADOR FORRAGEIRO 220V 2,0CV 60HZ MONOFASICO GTI-2000LDF-V2 GARTHE...</strong></td>
+            <td>agropecuaria----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.550,75</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.550,75</td>
+            <td>R$1.550,75</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.372,65</td>
+            <td class="metric-value positive">R$821,90</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>0742832512152</td>
+            <td><strong>ESCADA EXTENSIVA FIBRA 15X2 DEGRAUS 7,80M EFD104</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.409,40</span>
+                <span>Estq: 8</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.409,40</td>
+            <td>R$1.409,40</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.156,38</td>
+            <td class="metric-value positive">R$746,98</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7890217031552</td>
+            <td><strong>CHAPA ALUMÍNIO TRADICIONAL 0,8MX0,4MM ROLO COM 27,5M</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.343,39</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.343,39</td>
+            <td>R$1.343,39</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.055,39</td>
+            <td class="metric-value positive">R$712,00</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898423296048 </td>
+            <td><strong>LONA AGRO SILO FORTE PRETA/BRANCA 8x100 72KG NORTENE 6631810072FORTE A</strong></td>
+            <td>lonas-e-filmes--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.313,94</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.313,94</td>
+            <td>R$1.313,94</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$2.010,33</td>
+            <td class="metric-value positive">R$696,39</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898319081055</td>
+            <td><strong>LONA PRETA 8 X 100 X 120KG - LONAX</strong></td>
+            <td>ferragem</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.307,00</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.307,00</td>
+            <td>R$1.307,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.999,71</td>
+            <td class="metric-value positive">R$692,71</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897451412864 </td>
+            <td><strong>CORTADOR DE PISO SUPER 1150 CORTAG 61286 B</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.295,01</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.295,01</td>
+            <td>R$1.295,01</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.981,37</td>
+            <td class="metric-value positive">R$686,36</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563908112</td>
+            <td><strong>FIO ''PARALELO'' 2 X 1,5MM - BOBINA COM 500 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.270,00</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.270,00</td>
+            <td>R$1.270,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.943,10</td>
+            <td class="metric-value positive">R$673,10</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>17899506702446</td>
+            <td><strong>ESCADA EXTENSIVA FIBRA 13X2 DEGRAUS 6,60M EFD102</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.225,17</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.225,17</td>
+            <td>R$1.225,17</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.874,51</td>
+            <td class="metric-value positive">R$649,34</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897637152157</td>
+            <td><strong>FERRAMENTA FIXAÇÃO CRAVA PINO FAI72N A PÓLVORA</strong></td>
+            <td>fixação</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.210,22</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.210,22</td>
+            <td>R$1.210,22</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.851,64</td>
+            <td class="metric-value positive">R$641,42</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7894200719212</td>
+            <td><strong>ASSENTO POLIÉSTER VOGUE PLUS BRANCO  - DECA</strong></td>
+            <td>hidráulica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.208,01</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.208,01</td>
+            <td>R$1.208,01</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.848,26</td>
+            <td class="metric-value positive">R$640,25</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898439062682 </td>
+            <td><strong>COMPRESSOR DE AR 127V/60HZ 24L MOTOR ELETRICO 2,5HP PRESSAO MAX. 8BAR ...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.204,53</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.204,53</td>
+            <td>R$1.204,53</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.842,93</td>
+            <td class="metric-value positive">R$638,40</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898627062449</td>
+            <td><strong>LONA PRETA 8 X 110 X 120KG - MAXILONA</strong></td>
+            <td>ferragem</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.202,04</span>
+                <span>Estq: 14</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.202,04</td>
+            <td>R$1.202,04</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.839,12</td>
+            <td class="metric-value positive">R$637,08</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898652641008 </td>
+            <td><strong>CABO DE ACO ALMA DE FIBRA GALVANIZADO 3/8 6X19 (100mt) LOBO ELLO 0013 ...</strong></td>
+            <td>ferragens-------------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.191,00</span>
+                <span>Estq: 8</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.191,00</td>
+            <td>R$1.191,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.822,23</td>
+            <td class="metric-value positive">R$631,23</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563907726</td>
+            <td><strong>FIO CABO FLEXÍVEL 3 X 4,00MM - 100 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.169,00</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.169,00</td>
+            <td>R$1.169,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.788,57</td>
+            <td class="metric-value positive">R$619,57</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7894200779728</td>
+            <td><strong>VASO CONFORTO SEM ABERTURA BRANCO GELO - DECA</strong></td>
+            <td>hidráulica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.159,76</span>
+                <span>Estq: 12</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.159,76</td>
+            <td>R$1.159,76</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.774,43</td>
+            <td class="metric-value positive">R$614,67</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897381627314</td>
+            <td><strong>FIO *CABO* FLEX 3 X 4,0MM - 100 METROS - SIL</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.151,46</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.151,46</td>
+            <td>R$1.151,46</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.761,74</td>
+            <td class="metric-value positive">R$610,28</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7896411417468 </td>
+            <td><strong>TELA SOMBRITE MONOFILAMENTO 70% 50 X 3,00 alt. EQUIPESCA 50052 B</strong></td>
+            <td>telas-diversas--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.150,70</span>
+                <span>Estq: 13</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.150,70</td>
+            <td>R$1.150,70</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.760,57</td>
+            <td class="metric-value positive">R$609,87</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891427033930 </td>
+            <td><strong>CORRENTE GALV. SOLD. 2,4mm saco 12,5Kg 112m 124024Z B</strong></td>
+            <td>agropecuaria----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.147,12</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.147,12</td>
+            <td>R$1.147,12</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.755,09</td>
+            <td class="metric-value positive">R$607,97</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898533564136</td>
+            <td><strong>INVERSOR SOLDA 150A (MIG-KAB150) BIVOLT - TORK</strong></td>
+            <td>ferramentas-elétricas</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.142,12</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.142,12</td>
+            <td>R$1.142,12</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.747,44</td>
+            <td class="metric-value positive">R$605,32</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563900772</td>
+            <td><strong>FIO CABO FLEXÍVEL 2 X 6,00MM - 100 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.120,00</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.120,00</td>
+            <td>R$1.120,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.713,60</td>
+            <td class="metric-value positive">R$593,60</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891602736243 </td>
+            <td><strong>TELA FORT.FAMILY 5x10 fio 2.50mm 2.03alt ROLO 25M VERDE BELGO 40401619...</strong></td>
+            <td>telas-para-cercamento-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.110,16</span>
+                <span>Estq: 36</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.110,16</td>
+            <td>R$1.110,16</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.698,54</td>
+            <td class="metric-value positive">R$588,38</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7896451842145</td>
+            <td><strong>PRESSURIZADOR DE ÁGUA FLUXOSTATO PL20 (20MCA) 220 VOLTS - LORENZETTI</strong></td>
+            <td>ferramentas-elétricas</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.055,70</span>
+                <span>Estq: 7</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.055,70</td>
+            <td>R$1.055,70</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.615,22</td>
+            <td class="metric-value positive">R$559,52</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7890217048581</td>
+            <td><strong>CHAPA ALUMÍNIO LEVE 0,8MX0,3MM ROLO COM 27,5M</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.050,71</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.050,71</td>
+            <td>R$1.050,71</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.607,59</td>
+            <td class="metric-value positive">R$556,88</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899192200267 </td>
+            <td><strong>CORDAÇO 7 FIOS 250m 40069301 A</strong></td>
+            <td>arames-e-acessorios---------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.047,39</span>
+                <span>Estq: 16</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.047,39</td>
+            <td>R$1.047,39</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.602,51</td>
+            <td class="metric-value positive">R$555,12</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891009795331</td>
+            <td><strong>MARTELETE SDS-PLUS GBH 2-24D 820W 220V</strong></td>
+            <td>ferramenta-elétricas-e-bateria</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.032,39</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.032,39</td>
+            <td>R$1.032,39</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.579,56</td>
+            <td class="metric-value positive">R$547,17</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442999913 </td>
+            <td><strong>GUINCHO COLUNA PRIME 220V V2 300/600KG 12/6M C/MOTOR MONOFASICO 60HZ M...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.020,64</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.020,64</td>
+            <td>R$1.020,64</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.561,58</td>
+            <td class="metric-value positive">R$540,94</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563907795</td>
+            <td><strong>FIO CABO FLEXÍVEL 4 X 2,50MM - 100 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$1.018,00</span>
+                <span>Estq: 14</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.018,00</td>
+            <td>R$1.018,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.557,54</td>
+            <td class="metric-value positive">R$539,54</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898439060183 </td>
+            <td><strong>PERFURADOR DE SOLO GASOLINA 2T 52CC REFRIGERADO A AR C/ BROCA TEKNA EA...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.015,55</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.015,55</td>
+            <td>R$1.015,55</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.553,79</td>
+            <td class="metric-value positive">R$538,24</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898439062699 </td>
+            <td><strong>COMPRESSOR DE AR 220V/60HZ 24L MOTOR ELETRICO 2,5HP PRESSAO MAX. 8BAR ...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.007,25</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.007,25</td>
+            <td>R$1.007,25</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.541,09</td>
+            <td class="metric-value positive">R$533,84</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7890217031347</td>
+            <td><strong>CHAPA ALUMÍNIO TRADICIONAL 0,6MX0,4MM ROLO COM 27,5M</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$1.006,81</span>
+                <span>Estq: 4</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.006,81</td>
+            <td>R$1.006,81</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.540,42</td>
+            <td class="metric-value positive">R$533,61</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891602736236 </td>
+            <td><strong>TELA FORT.FAMILY 5x10 fio 2.50mm 1.83alt ROLO 25M VERDE BELGO 40473623...</strong></td>
+            <td>telas-para-cercamento-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$1.000,77</span>
+                <span>Estq: 31</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$1.000,77</td>
+            <td>R$1.000,77</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.531,18</td>
+            <td class="metric-value positive">R$530,41</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898911729133</td>
+            <td><strong>CAIXA D'ÁGUA POLIETILENO COM TAMPA 2000L</strong></td>
+            <td>hidráulica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$999,82</span>
+                <span>Estq: 10</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$999,82</td>
+            <td>R$999,82</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.529,72</td>
+            <td class="metric-value positive">R$529,90</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891117105909 </td>
+            <td><strong>MANGUEIRA FLEX EM PVC VERDE LISTRA PRETA JARDIM 4 CAMADAS 1/2 x 2,3mm ...</strong></td>
+            <td>jardinagem-e-irrigação------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$986,06</span>
+                <span>Estq: 6</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$986,06</td>
+            <td>R$986,06</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.508,67</td>
+            <td class="metric-value positive">R$522,61</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>3165140992657</td>
+            <td><strong>MARTELETE SDS-PLUS GBH 220 720W 220V</strong></td>
+            <td>ferramenta-elétricas-e-bateria</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$985,65</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$985,65</td>
+            <td>R$985,65</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.508,04</td>
+            <td class="metric-value positive">R$522,39</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563907795 </td>
+            <td><strong>CABO FLEX PP 4x2,50mm 500V 100M PRETO CORFIO (N) W0177N-PT A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$984,68</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$984,68</td>
+            <td>R$984,68</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.506,56</td>
+            <td class="metric-value positive">R$521,88</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442991696</td>
+            <td><strong>LIXADEIRA PAREDE/TETO LED MLP 750 750W 220V</strong></td>
+            <td>ferramenta-elétricas-e-bateria</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$983,88</span>
+                <span>Estq: 34</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$983,88</td>
+            <td>R$983,88</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.505,34</td>
+            <td class="metric-value positive">R$521,46</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898627062135</td>
+            <td><strong>LONA AGRO PRETA/BRANCA 06X100M - 60KG</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$974,84</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$974,84</td>
+            <td>R$974,84</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.491,51</td>
+            <td class="metric-value positive">R$516,67</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442999982 </td>
+            <td><strong>SERRA DE CORTE MSC-2200 60HZ 2200W 220V C/MOTOR MONO E C/DISCO DE CORT...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$969,82</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$969,82</td>
+            <td>R$969,82</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.483,82</td>
+            <td class="metric-value positive">R$514,00</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898423295997 </td>
+            <td><strong>LONA AGRO SILO FORTE PRETA/BRANCA 6x100 54KG NORTENE 6631610054FORTE A</strong></td>
+            <td>lonas-e-filmes--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$968,79</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$968,79</td>
+            <td>R$968,79</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.482,25</td>
+            <td class="metric-value positive">R$513,46</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891960880176</td>
+            <td><strong>PEX ALICATE PRENSA MANUAL CONEXÃO GÁS - AMANCO</strong></td>
+            <td>ferragem</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$963,59</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$963,59</td>
+            <td>R$963,59</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.474,29</td>
+            <td class="metric-value positive">R$510,70</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7894200152880</td>
+            <td><strong>CHUVEIRO COM DESVIADOR E DUCHA MANUAL MAX 1975C - DECA</strong></td>
+            <td>hidráulica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$963,19</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$963,19</td>
+            <td>R$963,19</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.473,68</td>
+            <td class="metric-value positive">R$510,49</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442999975 </td>
+            <td><strong>SERRA DE CORTE MSC-2200 60HZ 2200W 127V C/MOTOR MONO E C/DISCO DE CORT...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$958,98</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$958,98</td>
+            <td>R$958,98</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.467,24</td>
+            <td class="metric-value positive">R$508,26</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7897381627383 </td>
+            <td><strong>CABO FLEX PP 4x2,50mm 500V 100M PRETO SIL (N) 404.037.002.1.23 A</strong></td>
+            <td>campanha-especial-sistema---------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$956,00</span>
+                <span>Estq: 10</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$956,00</td>
+            <td>R$956,00</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.462,68</td>
+            <td class="metric-value positive">R$506,68</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7896451842145 </td>
+            <td><strong>BOMBA D'AGUA PRESSURIZADORA PL20 (20MCA) 350W 220V LORENZETTI 7541017 ...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$943,74</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$943,74</td>
+            <td>R$943,74</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.443,92</td>
+            <td class="metric-value positive">R$500,18</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442999623 </td>
+            <td><strong>GUINCHO COLUNA PRIME 127V V2 300/600KG 12/6M C/MOTOR MONOFASICO 60HZ M...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$936,96</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$936,96</td>
+            <td>R$936,96</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.433,55</td>
+            <td class="metric-value positive">R$496,59</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898439062736 </td>
+            <td><strong>COMPRESSOR DE AR 220V 60HZ 20L 2HP MONOFASICO TEKNA 1011022 B</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$934,44</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$934,44</td>
+            <td>R$934,44</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.429,69</td>
+            <td class="metric-value positive">R$495,25</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891117064053 </td>
+            <td><strong>MANGUEIRA FLEX EM PVC VERDE JARDIM 3 CAMADAS 1/2 x 2,3mm 300M TRAMONTI...</strong></td>
+            <td>jardinagem-e-irrigação------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$930,85</span>
+                <span>Estq: 17</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$930,85</td>
+            <td>R$930,85</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.424,20</td>
+            <td class="metric-value positive">R$493,35</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7892183268017</td>
+            <td><strong>PORCA INOX I 1'' - JOMARCA</strong></td>
+            <td>ferragem</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$928,15</span>
+                <span>Estq: 10</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$928,15</td>
+            <td>R$928,15</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.420,07</td>
+            <td class="metric-value positive">R$491,92</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899563906507</td>
+            <td><strong>FIO MULTIPLEX MONOFÁSICO 10MM - 300 METROS - CORFIO</strong></td>
+            <td>elétrica</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$928,03</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$928,03</td>
+            <td>R$928,03</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.419,89</td>
+            <td class="metric-value positive">R$491,86</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547451364</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA CASTANHO - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$944,06</span>
+                <span>Estq: 7</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$922,62</span>
+                <span>Estq: 3</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$922,62</td>
+            <td>R$944,06</td>
+            <td class="metric-value">2.3%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.411,61</td>
+            <td class="metric-value positive">R$488,99</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7896411417208 </td>
+            <td><strong>TELA SOMBRITE MONOFILAMENTO 50% 50 X 3,00 alt. EQUIPESCA 50026 B</strong></td>
+            <td>telas-diversas--------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$914,72</span>
+                <span>Estq: 19</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$914,72</td>
+            <td>R$914,72</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.399,52</td>
+            <td class="metric-value positive">R$484,80</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>3165140817592</td>
+            <td><strong>SERRA TICO-TICO GST 75 E 710W 220V</strong></td>
+            <td>ferramenta-elétricas-e-bateria</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$909,60</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$909,60</td>
+            <td>R$909,60</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.391,69</td>
+            <td class="metric-value positive">R$482,09</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>3295249198336</td>
+            <td><strong>ASSENTO PARA MOVIMENTAÇÃO VERTICAL TC105</strong></td>
+            <td>epi</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$909,48</span>
+                <span>Estq: 1</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$909,48</td>
+            <td>R$909,48</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.391,50</td>
+            <td class="metric-value positive">R$482,02</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7891114147438 </td>
+            <td><strong>LAVADORA DE ALTA PRESSAO 1900PSI 1800W 130 BAR 220V TRAMONTINA 4255202...</strong></td>
+            <td>maquinas-e-acessorios-------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$909,02</span>
+                <span>Estq: 6</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$909,02</td>
+            <td>R$909,02</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.390,80</td>
+            <td class="metric-value positive">R$481,78</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>2024410036013</td>
+            <td><strong>LONA CRISTAL VIRGEM 04X100M - 36KG</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$906,82</span>
+                <span>Estq: 12</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$906,82</td>
+            <td>R$906,82</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.387,43</td>
+            <td class="metric-value positive">R$480,61</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898215043065 </td>
+            <td><strong>ELETRIFICADOR DE CERCA ZK300 220V 19,36JOULES 6.500M ZEBU 2420 B</strong></td>
+            <td>agropecuaria----------------------------</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Tidao</strong></span>
+                <span>R$901,07</span>
+                <span>Estq: 7</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$901,07</td>
+            <td>R$901,07</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.378,64</td>
+            <td class="metric-value positive">R$477,57</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7898442994543</td>
+            <td><strong>LIXADEIRA DE PAREDE 710 WATTS 220 VOLTS - MENEGOTTI</strong></td>
+            <td>ferramentas-elétricas</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$896,17</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$896,17</td>
+            <td>R$896,17</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.371,14</td>
+            <td class="metric-value positive">R$474,97</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>2024811080011</td>
+            <td><strong>LONA PRETA ROLO 08X100M - 80KG GRATIS 10M</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$887,31</span>
+                <span>Estq: 37</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$887,31</td>
+            <td>R$887,31</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.357,58</td>
+            <td class="metric-value positive">R$470,27</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547451272</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA INCOLOR - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$995,05</span>
+                <span>Estq: N/A</span>
+                <span></span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$887,25</td>
+            <td>R$995,05</td>
+            <td class="metric-value">12.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.357,49</td>
+            <td class="metric-value positive">R$470,24</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547451302</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA CANELA - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: N/A</span>
+                <span></span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: 2</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547451333</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA CASTANHEIRA - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 1</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547451395</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA CEDRO - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 2</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547450619</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA IMBUIA - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 3</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: 7</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547450626</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA IPÊ - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 5</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547450640</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA MOGNO - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 4</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: N/A</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>⛔ SEM ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7909547450657</td>
+            <td><strong>OSMOCOLOR STAIN BASE ÁGUA NOGUEIRA - LATA 18 LITROS - MONTANA</strong></td>
+            <td>pintura</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Diferpan</strong></span>
+                <span>R$887,25</span>
+                <span>Estq: 4</span>
+                <span></span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$886,34</span>
+                <span>Estq: 5</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$886,34</td>
+            <td>R$887,25</td>
+            <td class="metric-value">0.1%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.356,10</td>
+            <td class="metric-value positive">R$469,76</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+        <tr class="priority-2">
+            <td>7899085403607</td>
+            <td><strong>ESCADA EXTENSIVA ALUMÍNIO 13X2 DEGRAUS EEA13</strong></td>
+            <td>ferragens</td>
+            <td><div class="supplier-detail">
+            <div class="supplier-row">
+                <span><strong>Orion</strong></span>
+                <span>R$878,98</span>
+                <span>Estq: 19</span>
+                <span>🚩 MELHOR PREÇO</span>
+                <span>📦 ESTOQUE</span>
+            </div>
+            </div></td>
+            <td>R$878,98</td>
+            <td>R$878,98</td>
+            <td class="metric-value">0.0%</td>
+            <td class="metric-value">1.53x</td>
+            <td class="metric-value positive">R$1.344,84</td>
+            <td class="metric-value positive">R$465,86</td>
+            <td><strong>✅ Boa oportunidade</strong></td>
+        </tr>
+        
+                    </tbody>
+                </table>
+                <p class="timestamp">Exibindo os 100 produtos com maior potencial de lucro de {total_products} analisados</p>
+            </div>
+            
+            <div class="section">
+                <h2>Oportunidades Estratégicas</h2>
+                
+                <div class="recommendation">
+                    <h3>⭐ Compras Prioritárias</h3>
+                    <p>Produtos com lucro por unidade acima da média ({format_price(avg_profit_per_unit)}) 
+                    e variação de preço entre fornecedores maior que 30%. Recomendamos negociação imediata 
+                    com o fornecedor mais barato.</p>
+                </div>
+                
+                <div class="recommendation">
+                    <h3>📊 Categorias com Maior Lucratividade</h3>
+                    <ul>
+    <li><strong>máquinas-e-equipamentos</strong>: Lucro médio de R$345,86 por unidade</li><li><strong>campanha-especial-sistema---------------</strong>: Lucro médio de R$318,63 por unidade</li><li><strong>telas-para-cercamento-------------------</strong>: Lucro médio de R$252,61 por unidade</li><li><strong>lonas-e-filmes--------------------------</strong>: Lucro médio de R$181,43 por unidade</li><li><strong>motobombas</strong>: Lucro médio de R$170,47 por unidade</li>
+                    </ul>
+                </div>
+                
+                <div class="recommendation">
+                    <h3>🏆 Fornecedores com Melhores Preços</h3>
+                    <ul>
+    <li><strong>Diferpan</strong>: Melhor preço em 9119 produtos</li><li><strong>Tidao</strong>: Melhor preço em 8787 produtos</li><li><strong>Orion</strong>: Melhor preço em 8166 produtos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>
+    
